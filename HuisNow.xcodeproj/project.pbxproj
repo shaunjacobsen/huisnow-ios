@@ -11,6 +11,8 @@
 		9E6914DF25B37F7E0040DCBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6914DE25B37F7E0040DCBC /* ContentView.swift */; };
 		9E6914E125B37F7E0040DCBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E6914E025B37F7E0040DCBC /* Assets.xcassets */; };
 		9E6914E425B37F7E0040DCBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E6914E325B37F7E0040DCBC /* Preview Assets.xcassets */; };
+		9E6914F025B3865E0040DCBC /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6914EF25B3865E0040DCBC /* Property.swift */; };
+		9E6914F325B386F80040DCBC /* PropertyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6914F225B386F80040DCBC /* PropertyListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		9E6914E025B37F7E0040DCBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E6914E325B37F7E0040DCBC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9E6914E525B37F7E0040DCBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E6914EF25B3865E0040DCBC /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = SOURCE_ROOT; };
+		9E6914F225B386F80040DCBC /* PropertyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,8 @@
 		9E6914DB25B37F7E0040DCBC /* HuisNow */ = {
 			isa = PBXGroup;
 			children = (
+				9E6914EE25B386550040DCBC /* Models */,
+				9E6914ED25B3864F0040DCBC /* Views */,
 				9E6914DC25B37F7E0040DCBC /* HuisNowApp.swift */,
 				9E6914DE25B37F7E0040DCBC /* ContentView.swift */,
 				9E6914E025B37F7E0040DCBC /* Assets.xcassets */,
@@ -67,6 +73,22 @@
 				9E6914E325B37F7E0040DCBC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9E6914ED25B3864F0040DCBC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E6914F225B386F80040DCBC /* PropertyListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9E6914EE25B386550040DCBC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E6914EF25B3865E0040DCBC /* Property.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +160,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E6914F025B3865E0040DCBC /* Property.swift in Sources */,
 				9E6914DF25B37F7E0040DCBC /* ContentView.swift in Sources */,
+				9E6914F325B386F80040DCBC /* PropertyListView.swift in Sources */,
 				9E6914DD25B37F7E0040DCBC /* HuisNowApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
