@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 extension View {
-  func badge(count: Int? = nil) -> some View {
-    ZStack(alignment: .topTrailing) {
+  func badge(count: Int? = nil, alignment: Alignment = .topTrailing) -> some View {
+    ZStack(alignment: alignment) {
       self
       ZStack {
         if let countUnwrapped = count {

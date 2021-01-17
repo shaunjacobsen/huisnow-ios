@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State var properties = [Property(name: "Property One", type: .apartment, address: "Javastraat 1", postcode: "1095 XX", price: 150000, agent: "Makelaar", images: [Image("SampleProperty")], municipality: "Amsterdam", constructionYear: 1930, source: "Pararius", sourceIdentifier: "some identifier", createdAt: Date(), updatedAt: Date(), status: .new), Property(name: "Property Two", type: .apartment, address: "Javastraat 1", postcode: "1095 XX", price: 300000, agent: "Makelaar", images: [Image("SampleProperty")], municipality: "Amsterdam", constructionYear: 1930, source: "Pararius", sourceIdentifier: "some identifier", createdAt: Date(), updatedAt: Date(), status: .markedInterested), Property(name: "Property Three", type: .apartment, address: "Javastraat 1", postcode: "1095 XX", price: 300000, agent: "Makelaar", images: [Image("SampleProperty")], municipality: "Amsterdam", constructionYear: 1930, source: "Pararius", sourceIdentifier: "some identifier", createdAt: Date(), updatedAt: Date(), status: .viewingBooked)]
   var body: some View {
     ZStack {
       Color("Background")
@@ -27,6 +28,7 @@ struct ContentView: View {
           .font(.title2)
           .foregroundColor(Color("Grey"))
           .fontWeight(.bold)
+        PropertyListView(properties: $properties)
         Text("Upcoming viewings")
           .font(.title2)
           .foregroundColor(Color("Grey"))

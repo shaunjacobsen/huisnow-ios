@@ -12,12 +12,10 @@ import SwiftUI
 struct PropertyListView: View {
   @Binding var properties: [Property]
   var body: some View {
-    ZStack {
-      Color("Background")
-      ForEach(properties.indices) { i in
-        PropertyListRow(property: properties[i])
-      }
+    ForEach(properties.indices) { i in
+      PropertyListRow(property: properties[i])
     }
+    
     
     
   }
@@ -28,11 +26,35 @@ struct PropertyListRow: View {
   
   var body: some View {
     ZStack {
-      Color(.white)
       HStack {
-        property.images[0]
-          .centerCropped()
-          .frame(width: 150)
+        if (property.status == .new) {
+          property.images[0]
+            .centerCropped()
+            .frame(width: 150)
+            .cornerRadius(6.0)
+            .badge()
+        } else {
+          ZStack {
+            property.images[0]
+              .centerCropped()
+              .frame(width: 150)
+              .cornerRadius(6.0)
+              .overlay(
+                ZStack {
+                  if (property.status == .markedInterested) {
+                    Color("Jaune").opacity(0.5)
+                  } else if property.status == .viewingBooked {
+                    Color("Vert").opacity(0.5)
+                  }
+                  property.statusSymbol()
+                    .font(.title)
+                    .foregroundColor(Color(.white))
+                }
+              )
+          }
+          
+        }
+        
         
         Group {
           VStack(alignment: .leading) {
@@ -41,7 +63,7 @@ struct PropertyListRow: View {
                 .font(.title3)
                 .kerning(-1)
               Spacer()
-              property.statusSymbol()
+              
             }.padding(.trailing, 10)
             
             
@@ -72,23 +94,18 @@ struct PropertyListRow: View {
           .padding(.bottom, 10)
         }
       }
-      
     }
-    
-    .cornerRadius(6.0)
-    .shadow(color: Color(.black).opacity(0.2), radius: 5, x: 0, y: 0)
-    .frame(maxWidth: .infinity, maxHeight: 150)
-    .badge()
-    .padding()
+    .frame(maxWidth: .infinity, maxHeight: 100)
+    .padding(.bottom, 10)
   }
 }
 
 
 
 struct Property_Previews: PreviewProvider {
-  static private var properties = Binding.constant([Property(name: "Property One", type: .apartment, address: "Soendastraat 24", postcode: "1094 BH", price: 150000, agent: "Makelaar", images: [Image("SampleProperty")], municipality: "Amsterdam", constructionYear: 1930, source: "Pararius", sourceIdentifier: "some identifier", createdAt: Date(), updatedAt: Date(), status: .new)])
+  static private var properties = Binding.constant([Property(name: "Property One", type: .apartment, address: "Javastraat 1", postcode: "1095 XX", price: 150000, agent: "Makelaar", images: [Image("SampleProperty")], municipality: "Amsterdam", constructionYear: 1930, source: "Pararius", sourceIdentifier: "some identifier", createdAt: Date(), updatedAt: Date(), status: .new), Property(name: "Property Two", type: .apartment, address: "Javastraat 1", postcode: "1095 XX", price: 300000, agent: "Makelaar", images: [Image("SampleProperty")], municipality: "Amsterdam", constructionYear: 1930, source: "Pararius", sourceIdentifier: "some identifier", createdAt: Date(), updatedAt: Date(), status: .markedInterested)])
   
   static var previews: some View {
-    PropertyListView(properties: properties)
+    PropertyListView(properties: properties).padding()
   }
 }
