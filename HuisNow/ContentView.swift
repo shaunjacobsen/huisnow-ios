@@ -24,10 +24,16 @@ struct ContentView: View {
             .fontWeight(.black)
         }.padding(.top, 50)
         .padding(.bottom, 20)
-        Text("Newest properties")
-          .font(.title2)
-          .foregroundColor(Color("Grey"))
-          .fontWeight(.bold)
+        
+        VStack {
+          
+          Text("MapView")
+        }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 300)
+        .padding(.trailing, 10)
+        .background(Color("CardText"))
+        .cornerRadius(6.0)
+        
         PropertyListView(properties: $properties)
         Text("Upcoming viewings")
           .font(.title2)
@@ -35,7 +41,8 @@ struct ContentView: View {
           .fontWeight(.bold)
           .padding(.top, 20)
         Spacer()
-      }.frame(maxWidth: .infinity, alignment: .leading).padding()
+      }
+      .frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 10)
     }.edgesIgnoringSafeArea(.all)
     
   }
